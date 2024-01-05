@@ -7,12 +7,12 @@ PW=changeit
 echo "*********"
 echo "RootCA"
 echo "*********"
-openssl req -x509  -passin pass:$PW -sha256 -days 3650 -newkey rsa:4096 -keyout rootCA.key -out rootCA.crt 
+openssl req -x509  -passin pass:$PW -sha256 -days 3650 -newkey rsa:4096 -keyout rootCA.key -out rootCA.crt
 
 echo "*********"
 echo "Host certificate csr"
 echo "*********"
-openssl req -new -newkey rsa:4096  -passin pass:$PW -keyout localhost.key -out localhost.csr -nodes 
+openssl req -new -newkey rsa:4096 -noenc -keyout localhost.key -out localhost.csr
 
 echo "*********"
 echo "Sign host csr with rootCA (see below for file localhost.ext):"
@@ -27,7 +27,7 @@ openssl pkcs12 -export -in localhost.crt -inkey localhost.key -out keystore.p12 
 echo "*********"
 echo "Client (user) certificate"
 echo "*********"
-openssl req -new -newkey rsa:4096 -nodes -keyout fredFlintstone.key -out fredFlintstone.csr
+openssl req -new -newkey rsa:4096 -noenc -keyout fredFlintstone.key -out fredFlintstone.csr
 
 echo "*********"
 echo "Sign client csr with rootCA:"

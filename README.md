@@ -9,7 +9,6 @@ The directory ./certs contains the script ./makeCerts.  Run `./makeCerts.sh <ip>
 Startup Keycloak using `docker-compose up` from the repo root.
 
 ## Import Keystore ##
-Open the admin console at `http://<ip>:8443` and login with credentials admin:admin.  Thgis is done by clicking on the master drop down and clicking the Create Realm button.  Use the exported realm x509-realm-export.json to setup the realm and configure it to do a x509 login.
+Open the admin console at `http://<ip>:8443` and login with credentials admin:admin.  This is done by clicking on the master drop down and clicking the Create Realm button.  Use the exported realm x509-realm-export.json to setup the realm and configure it to do a x509 login.
 
 Navigate to `https://<host ip>:8443/realms/x509/account/`
-
