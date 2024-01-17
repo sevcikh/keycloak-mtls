@@ -1,8 +1,8 @@
   services:
     keycloak:
-      image: quay.io/keycloak/keycloak:20.0.2
+      image: quay.io/keycloak/keycloak:22.0.4
       command: 
-        - "start-dev"
+        - "start"
         - "--https-client-auth=request"
         - "--https-key-store-file=/genCerts/keystore.jks"
         - "--https-key-store-password=changeit"
@@ -19,8 +19,8 @@
         KEYCLOAK_ADMIN: admin
         KEYCLOAK_ADMIN_PASSWORD: admin
         KC_LOG_LEVEL: info,org.keycloak.authentication:trace
-        KC_FEATURES_DISABLED: admin2
-        KC_FEATURES: admin
+        # KC_FEATURES_DISABLED: admin2
+        # KC_FEATURES: admin
         KC_SPI_IMPORT_SINGLE_FILE_FILE: x509-realm-export.json
       ports:
         - 8080:8080
